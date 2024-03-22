@@ -14,4 +14,5 @@ def stonks():
     resp.headers.add("Access-Control-Allow-Headers", "*")
     resp.headers.add("Access-Control-Allow-Methods", "*")
     return resp
-app.run()
+
+app.run(host="0.0.0.0")
