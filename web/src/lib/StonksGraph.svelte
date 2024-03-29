@@ -30,4 +30,4 @@
 
 </script>
 
-<canvas bind:this={portfolio} width={800} height={500}></canvas>
+<canvas bind:this={portfolio} width={1200} height={800}></canvas>
