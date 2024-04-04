@@ -10,3 +10,5 @@ RUN npm install && \
     npm run build
 
 CMD ["npm","run","preview","--host"]
+
+EXPOSE 4173
