@@ -3,6 +3,6 @@
 </script>
 
 
-<h1>
+<h1 >
     ATOS: {stonks.price}€
 </h1>
