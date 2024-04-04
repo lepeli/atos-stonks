@@ -1,0 +1,29 @@
+services:
+  web-calendar:
+    build: ./web/
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.atos-stonks-web.rule=Host(`atos-stonks.56k.ing`)
+      - traefik.http.routers.atos-stonks-web.service=atos-stonks-web
+      - traefik.http.services.atos-stonks-web.loadbalancer.server.port=4173
+    networks:
+      - traefik
+    restart: always
+
+  api-calendar:
+    build: ./api
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.atos-stonks-api.rule=Host(`atos-stonks.56k.ing`) && PathPrefix("/stonks")
+      - traefik.http.routers.atos-stonks-api.service=atos-stonks-api
+      - traefik.http.services.atos-stonks-api.loadbalancer.server.port=8000
+    networks:
+      - traefik
+    restart: always
+
+
+networks:
+  traefik:
+    external: true
